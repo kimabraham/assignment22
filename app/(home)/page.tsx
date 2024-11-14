@@ -13,7 +13,7 @@ export default async function Home() {
   const bestSellers = await getBestSellers();
 
   return (
-    <main className="min-h-screen max-w-screen-xl mx-auto px-16 py-12">
+    <>
       <h1 className="text-4xl font-bold mb-12">
         The New York Times Best Seller Explorer
       </h1>
@@ -29,6 +29,6 @@ export default async function Home() {
           </Link>
         ))}
       </section>
-    </main>
+    </>
   );
 }
