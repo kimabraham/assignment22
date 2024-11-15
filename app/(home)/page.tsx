@@ -1,20 +1,13 @@
 import Link from "next/link";
 import RightArrowIcon from "@/components/RightArrowIcon";
-import { NYT_API_URL } from "@/constants/apis";
-import { BestSellerListsResponse } from "@/types/bestSeller";
-
-const getBestSellers = async (): Promise<BestSellerListsResponse> => {
-  const response = await fetch(NYT_API_URL);
-  const data = await response.json();
-  return data;
-};
+import { getBestSellers } from "./server";
 
 export default async function Home() {
   const bestSellers = await getBestSellers();
 
   return (
     <>
-      <h1 className="text-4xl font-bold mb-12">
+      <h1 className="text-3xl md:text-4xl font-bold mb-12">
         The New York Times Best Seller Explorer
       </h1>
       <section className="flex flex-wrap gap-6">
@@ -22,7 +15,7 @@ export default async function Home() {
           <Link
             key={list.list_name_encoded}
             href={`/lists/${list.list_name_encoded}`}
-            className="btn btn-lg btn-outline text-xl px-8 flex items-center gap-2"
+            className="btn btn-md md:btn-lg btn-outline text-sm md:text-xl md:px-8 flex items-center gap-2"
           >
             {list.display_name}
             <RightArrowIcon />
