@@ -17,7 +17,14 @@ export default function BookCard({ book }: { book: Book }) {
         <h2 className="text-base font-bold">{book.title}</h2>
         <p className="text-right text-xs">{book.author}</p>
         <div className="card-actions justify-end">
-          <Link href={book.amazon_product_url} className="btn btn-primary">
+          <Link
+            href={
+              book.amazon_product_url ||
+              book.buy_links.find((link) => link.name === "Amazon")?.url ||
+              book.buy_links.filter((link) => link.url)[0].url
+            }
+            className="btn btn-primary"
+          >
             Buy Now
           </Link>
         </div>
