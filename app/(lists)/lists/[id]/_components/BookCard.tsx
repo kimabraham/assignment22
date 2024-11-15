@@ -1,4 +1,5 @@
 import { IBook } from "@/types/book";
+import { getImage } from "@/utils/util";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +10,11 @@ interface BookCardProps {
   >;
 }
 
-export default function BookCard({ book }: BookCardProps) {
+export default async function BookCard({ book }: BookCardProps) {
+  const { base64 } = await getImage(
+    book.book_image || "/images/default-book-cover.jpg"
+  );
+
   return (
     <div className="card card-compact bg-base-100 w-full shadow-xl">
       <figure className="relative h-[250px] md:h-[420px]">
@@ -19,10 +24,8 @@ export default function BookCard({ book }: BookCardProps) {
           fill
           className="object-cover"
           quality={25}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          loading="lazy"
           placeholder="blur"
-          blurDataURL="/images/cover-coming-soon.png"
+          blurDataURL={base64}
         />
       </figure>
       <div className="card-body">
