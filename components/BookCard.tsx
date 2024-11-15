@@ -23,6 +23,7 @@ export default function BookCard({ book }: { book: Book }) {
               book.buy_links.find((link) => link.name === "Amazon")?.url ||
               book.buy_links.filter((link) => link.url)[0].url
             }
+            target="_blank"
             className="btn btn-primary"
           >
             Buy Now

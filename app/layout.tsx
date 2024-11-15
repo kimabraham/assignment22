@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="retro">
       <body>
         <Header />
         <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 md:py-12">

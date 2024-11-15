@@ -1,6 +1,7 @@
 import BookCard from "@/components/BookCard";
 import { getBooks } from "./server";
 import { Metadata } from "next";
+import { formatTitle } from "@/utils/util";
 
 export async function generateMetadata({
   params,
@@ -8,11 +9,6 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const formatTitle = (text: string): string => {
-    const title = text.split("-").join(" ");
-    return title.charAt(0).toUpperCase() + title.slice(1);
-  };
-
   return {
     title: formatTitle(id),
   };
@@ -27,11 +23,6 @@ export default async function List({
   const {
     results: { books },
   } = await getBooks(id);
-
-  const formatTitle = (text: string): string => {
-    const title = text.split("-").join(" ");
-    return title.charAt(0).toUpperCase() + title.slice(1);
-  };
 
   return (
     <>

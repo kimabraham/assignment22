@@ -1,6 +1,5 @@
-import Link from "next/link";
-import RightArrowIcon from "@/components/RightArrowIcon";
 import { getBestSellers } from "./server";
+import CategoryCard from "@/components/CategoryCard";
 
 export const metadata = {
   title: "Home",
@@ -16,14 +15,7 @@ export default async function Home() {
       </h1>
       <section className="flex flex-wrap gap-3 md:gap-6">
         {bestSellers.results.map((list) => (
-          <Link
-            key={list.list_name_encoded}
-            href={`/lists/${list.list_name_encoded}`}
-            className="btn btn-sm md:btn-lg btn-outline text-xs md:text-xl md:px-8 flex items-center gap-2"
-          >
-            {list.display_name}
-            <RightArrowIcon />
-          </Link>
+          <CategoryCard key={list.list_name_encoded} list={list} />
         ))}
       </section>
     </>
