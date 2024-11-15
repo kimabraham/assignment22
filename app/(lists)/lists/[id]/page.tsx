@@ -26,7 +26,9 @@ export default async function List({
 
   return (
     <>
-      <p className="text-4xl font-bold mb-12 text-center">{formatTitle(id)}</p>
+      <h1 className="text-4xl font-bold text-center mb-12">
+        {formatTitle(id)}
+      </h1>
       <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
         {books.map((book) => (
           <BookCard key={book.primary_isbn13} book={book} />
