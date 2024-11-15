@@ -19,13 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="retro">
       <body>
-        <div>
-          <Header />
-          <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 pt-20 md:pt-28 md:pb-12">
-            {children}
-          </main>
-          <FloatButton />
-        </div>
+        <Header />
+        <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 pt-20 md:pt-28 md:pb-12">
+          {children}
+        </main>
+        <FloatButton />
       </body>
     </html>
   );
