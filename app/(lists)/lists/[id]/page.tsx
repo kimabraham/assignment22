@@ -26,10 +26,10 @@ export default async function List({ params }: ListProps) {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-center mb-12">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8">
         {formatTitle(id)}
       </h1>
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6 justify-center py-4">
         {books.map((book) => (
           <BookCard key={book.primary_isbn13} book={book} />
         ))}

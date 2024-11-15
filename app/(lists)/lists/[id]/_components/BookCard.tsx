@@ -24,7 +24,7 @@ export default function BookCard({ book }: BookCardProps) {
         />
       </figure>
       <div className="card-body">
-        <h2 className="text-base font-bold">{book.title}</h2>
+        <h2 className="text-sm md:text-base font-bold">{book.title}</h2>
         <p className="text-right text-xs">{book.author}</p>
         <div className="card-actions justify-end">
           <Link
@@ -34,7 +34,7 @@ export default function BookCard({ book }: BookCardProps) {
               book.buy_links.filter((link) => link.url)[0].url
             }
             target="_blank"
-            className="btn btn-primary"
+            className="btn btn-sm md:btn-md btn-primary"
           >
             Buy Now
           </Link>

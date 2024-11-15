@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" data-theme="retro">
       <body>
         <Header />
-        <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 pt-20 md:pt-28 md:pb-12">
+        <main className="max-w-screen-xl mx-auto px-6 pt-20 md:pt-28">
           {children}
         </main>
         <FloatButton />
