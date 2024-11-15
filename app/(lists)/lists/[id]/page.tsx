@@ -1,7 +1,11 @@
 import BookCard from "@/components/BookCard";
 import { getBooks } from "./server";
 
-export default async function List({ params }: { params: { id: string } }) {
+export default async function List({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const {
     results: { books },
