@@ -1,8 +1,15 @@
-import { Book } from "@/types/lists";
+import { IBook } from "@/types/book";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BookCard({ book }: { book: Book }) {
+interface BookCardProps {
+  book: Pick<
+    IBook,
+    "title" | "author" | "book_image" | "amazon_product_url" | "buy_links"
+  >;
+}
+
+export default function BookCard({ book }: BookCardProps) {
   return (
     <div className="card card-compact bg-base-100 w-full shadow-xl">
       <figure className="relative h-[250px] md:h-[420px]">

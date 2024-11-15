@@ -1,8 +1,20 @@
+import { ICategory, ICategoryResponse } from "@/types/category";
 import { NYT_API_URL } from "@/constants/apis";
-import { BestSellerListsResponse } from "@/types/bestSeller";
 
-export const getBestSellers = async (): Promise<BestSellerListsResponse> => {
-  const response = await fetch(`${NYT_API_URL}/lists`);
-  const data = await response.json();
-  return data;
+export const getCategories = async (): Promise<
+  ICategoryResponse<ICategory[]>
+> => {
+  try {
+    const response = await fetch(`${NYT_API_URL}/lists`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    throw error;
+  }
 };

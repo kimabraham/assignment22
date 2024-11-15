@@ -1,8 +1,19 @@
 import { NYT_API_URL } from "@/constants/apis";
-import { BooksResponse } from "@/types/lists";
+import { IBookList, IBookListResponse } from "@/types/book";
+export const getBooks = async (
+  id: string
+): Promise<IBookListResponse<IBookList>> => {
+  try {
+    const response = await fetch(`${NYT_API_URL}/list?name=${id}`);
 
-export const getBooks = async (id: string): Promise<BooksResponse> => {
-  const response = await fetch(`${NYT_API_URL}/list?name=${id}`);
-  const data = await response.json();
-  return data;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    throw error;
+  }
 };

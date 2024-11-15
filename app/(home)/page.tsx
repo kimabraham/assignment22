@@ -1,12 +1,12 @@
-import { getBestSellers } from "./server";
-import CategoryCard from "@/components/CategoryCard";
+import CategoryCard from "./_components/CategoryCard";
+import { getCategories } from "./server";
 
 export const metadata = {
   title: "Home",
 };
 
 export default async function Home() {
-  const bestSellers = await getBestSellers();
+  const { results: categories } = await getCategories();
 
   return (
     <>
@@ -14,8 +14,8 @@ export default async function Home() {
         The New York Times Best Seller Explorer
       </h1>
       <section className="flex flex-wrap gap-3 md:gap-6">
-        {bestSellers.results.map((list) => (
-          <CategoryCard key={list.list_name_encoded} list={list} />
+        {categories.map((category) => (
+          <CategoryCard key={category.list_name_encoded} category={category} />
         ))}
       </section>
     </>

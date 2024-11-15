@@ -1,7 +1,7 @@
-import BookCard from "@/components/BookCard";
 import { getBooks } from "./server";
 import { Metadata } from "next";
 import { formatTitle } from "@/utils/util";
+import BookCard from "./_components/BookCard";
 
 export async function generateMetadata({
   params,
@@ -14,11 +14,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function List({
-  params,
-}: {
+interface ListProps {
   params: Promise<{ id: string }>;
-}) {
+}
+
+export default async function List({ params }: ListProps) {
   const { id } = await params;
   const {
     results: { books },
