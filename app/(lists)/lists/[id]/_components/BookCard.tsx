@@ -19,6 +19,8 @@ export default function BookCard({ book }: BookCardProps) {
           fill
           className="object-cover"
           quality={25}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="lazy"
           placeholder="blur"
           blurDataURL="/images/cover-coming-soon.png"
         />
