@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <>
-      <h1 className="text-3xl md:text-4xl font-bold mb-12">
+      <h1 className="text-3xl md:text-4xl font-bold mb-6 md:mb-12">
         The New York Times Best Seller Explorer
       </h1>
       <section className="flex flex-wrap gap-3 md:gap-6">

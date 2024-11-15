@@ -18,6 +18,9 @@ export default function BookCard({ book }: BookCardProps) {
           alt={book.title || "Book cover"}
           fill
           className="object-cover"
+          quality={25}
+          placeholder="blur"
+          blurDataURL="/images/cover-coming-soon.png"
         />
       </figure>
       <div className="card-body">

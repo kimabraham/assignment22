@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
+import FloatButton from "./components/FloatButton";
 
 export const metadata: Metadata = {
   title: {
@@ -18,10 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="retro">
       <body>
-        <Header />
-        <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 md:py-12">
-          {children}
-        </main>
+        <div>
+          <Header />
+          <main className="max-w-screen-xl mx-auto px-4 md:px-6 py-6 pt-20 md:pt-28 md:pb-12">
+            {children}
+          </main>
+          <FloatButton />
+        </div>
       </body>
     </html>
   );
