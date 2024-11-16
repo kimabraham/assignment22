@@ -3,19 +3,17 @@ import { Metadata } from "next";
 import { formatTitle } from "@/utils/util";
 import BookCard from "./_components/BookCard";
 
+interface ListProps {
+  params: Promise<{ id: string }>;
+}
+
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
+}: ListProps): Promise<Metadata> {
   const { id } = await params;
   return {
     title: formatTitle(id),
   };
-}
-
-interface ListProps {
-  params: Promise<{ id: string }>;
 }
 
 export default async function List({ params }: ListProps) {
