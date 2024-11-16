@@ -9,7 +9,6 @@ interface CategoryCardProps {
 export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link
-      key={category.list_name_encoded}
       href={`/lists/${category.list_name_encoded}`}
       className="btn btn-sm md:btn-lg btn-outline text-xs md:text-xl md:px-8 flex items-center gap-2"
     >
